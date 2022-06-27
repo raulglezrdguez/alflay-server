@@ -8,9 +8,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(
-    '*********************************************************************************'
-  );
-  console.log(req);
-  res.status(200).json({ name: 'John Doe' });
+  console.log(req.headers.authorization);
+  res
+    .status(200)
+    .json({ name: req.headers.authorization || 'sin autorizacion' });
 }
