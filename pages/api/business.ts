@@ -9,7 +9,6 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   console.log(req.headers.authorization);
-  res
-    .status(200)
-    .json({ name: req.headers.authorization || 'sin autorizacion' });
+  const name = req.headers.authorization ? 'Ok' : 'Cancel';
+  res.status(200).json({ name });
 }
